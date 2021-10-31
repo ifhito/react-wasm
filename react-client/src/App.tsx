@@ -5,7 +5,7 @@ import Nav from './Components/nav';
 function App() {
 
   return (
-    <div>
+    <div id="flexContents">
       <Nav/>
     </div>
   );

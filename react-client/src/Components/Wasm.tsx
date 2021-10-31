@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Certificate } from 'tls';
+import styles from "../styles/Wasm.module.css";
 import type * as WASM from "../../../wasm-build/wasm"
 // type WasmResize = typeof WASM.resize_image;
 type WasmAddFont = typeof WASM.add_font_image;
@@ -51,20 +51,18 @@ function Webasm() {
   },[]);
   
   return (
-    <div>
+    <div id={styles.flexContents}>
       {/* <img src={URL.createObjectURL(image)}/> */}
-      <input type="file" accept="image/*" onChange={processImage}></input>
+      
       {imageFlag?
-                <>
-                    <img src={URL.createObjectURL(imageFileUrl)} />
+                    <><img id={styles.images}src={URL.createObjectURL(imageFileUrl)} />
                     {[fontTextProps,fontLocationUpProps,fontLocationLeftProps,fontScaleProps].map(element => {
                         return <input type="text" {...element} />
                     })}
-                    <div onClick={() => handleClickAddFont()}>画像にフォントを追加する</div>
-                    <div onClick={() => handleClickCreateGlitch()}>グリッチ化する</div>
-                </>
-      :<></>}
-
+                    <div id={styles.button} onClick={() => handleClickAddFont()}>画像にフォントを追加する</div>
+                    <div id={styles.button} onClick={() => handleClickCreateGlitch()}>グリッチ化する</div></>
+      :<input type="file" accept="image/*" onChange={processImage}></input>}
+      
     </div>
   );
 }
