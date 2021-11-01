@@ -20,24 +20,13 @@ jobs:
       # Runs a single command using the runners shell
       - name: checkout
         uses: actions/checkout@v2
-      - name: install rust
-        run: |
-          curl https://sh.rustup.rs -sSf | sh -y
-          source ~/.profile
-          cargo install wasm-pack
           
       - name: Use Node.js 16.x
         run: |
           sudo apt-get update
           sudo apt-get install nodejs npm
           npm install -g yarn
-          
-      - name: wasm build
-        run: |
-          wasm-pack build --out-dir ../wasm-build
-        working-directory: ./wasm
       
-          
       # Runs a set of commands using the runners shell
       - name: Yarn Install
         run: |
