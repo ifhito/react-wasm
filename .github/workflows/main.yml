@@ -18,10 +18,8 @@ jobs:
     steps:
       
       # Runs a single command using the runners shell
-#       - name: checkout
-#         uses: actions/checkout@v2
-#         with:
-#           path: main
+      - name: checkout
+        uses: actions/checkout@v2
       - name: Use Node.js 16.x
         run: |
           sudo apt-get update
