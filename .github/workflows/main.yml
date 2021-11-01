@@ -34,7 +34,7 @@ jobs:
         working-directory: ./react-client
       - name: Production Build
         run: |
-          yarn build
+          CI='' yarn build
         working-directory: ./react-client
       - name: Deploy to S3
         env:
