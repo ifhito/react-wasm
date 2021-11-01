@@ -31,7 +31,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Yarn Install
         run: |
-          cd ./react-client
           yarn install
       - name: Production Build
         run: |
