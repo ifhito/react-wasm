@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v2
       - name: install rust
         run: |
-          curl https://sh.rustup.rs -sSf | sh
+          curl https://sh.rustup.rs -sSf | sh -y
           source ~/.profile
           cargo install wasm-pack
           
