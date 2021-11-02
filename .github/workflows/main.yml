@@ -41,7 +41,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@master
         with:
           aws-region: ap-northeast-1
-          role-to-assume: arn:aws:iam::010922940107:role/assumeRole_githubaction
+          role-to-assume: arn:aws:iam::010922940107:role/assumeRole_githubAction
           role-session-name: MySessionName
       - run: aws sts get-caller-identity
         
