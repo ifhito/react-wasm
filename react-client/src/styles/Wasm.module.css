@@ -1,7 +1,12 @@
-input {
+.flexContentsBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.flexContentsBox__input {
     width: 20rem;
 }
-#button {
+.flexContentsBox__button {
     display: inline-block;
     width: fit-content;
     padding: 0.3em 1em;
@@ -12,11 +17,6 @@ input {
     border-radius: 3px;
     transition: .4s;
 }
-#images {
+.flexContentsBox__images {
     width: 300px;
-}
-#flexContents {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }

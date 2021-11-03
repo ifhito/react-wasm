@@ -1,8 +1,8 @@
-#componentTestText {
+.explanationBox {
     color: rgb(83 62 180);
     font-size: 30px;
 }
 
-#componentAtentionText {
+.explanationBox__attentionText {
     color:#5f36ca;
 }

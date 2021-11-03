@@ -4,7 +4,7 @@ import type * as WASM from "../../../wasm-build/wasm"
 // type WasmResize = typeof WASM.resize_image;
 type WasmAddFont = typeof WASM.add_font_image;
 type WasmCreateGlitch = typeof WASM.create_glitch;
-function Webasm() {
+const Webasm= () => {
   const useInput = (initialVal:string) => {
       const [value, set] = useState(initialVal);
 
@@ -51,23 +51,23 @@ function Webasm() {
   },[]);
   
   return (
-    <div id={styles.flexContents}>
+    <div className={styles.flexContentsBox}>
       {/* <img src={URL.createObjectURL(image)}/> */}
       
       {imageFlag?
-                    <><img id={styles.images}src={URL.createObjectURL(imageFileUrl)} />
+                    <><img className={styles.flexContentsBox__images}src={URL.createObjectURL(imageFileUrl)} />
                     {[fontTextProps,fontLocationUpProps,fontLocationLeftProps,fontScaleProps].map(element => {
-                        return <input type="text" {...element} />
+                        return <input className={styles.flexContentsBox__input} type="text" {...element} />
                     })}
-                    <div id={styles.button} onClick={() => handleClickAddFont()}>画像にフォントを追加する</div>
-                    <div id={styles.button} onClick={() => handleClickCreateGlitch()}>グリッチ化する</div></>
-      :<input type="file" accept="image/*" onChange={processImage}></input>}
+                    <div className={styles.flexContentsBox__button} onClick={() => handleClickAddFont()}>画像にフォントを追加する</div>
+                    <div className={styles.flexContentsBox__button} onClick={() => handleClickCreateGlitch()}>グリッチ化する</div></>
+      :<input className={styles.flexContentsBox__input} type="file" accept="image/*" onChange={processImage}></input>}
       
     </div>
   );
 }
 
-async function addFontImage(file:Blob, scale_height:number, pixels_from_up:number, pixels_from_left:number, text:string, format: string, wasm:WasmAddFont) {
+const addFontImage = async (file:Blob, scale_height:number, pixels_from_up:number, pixels_from_left:number, text:string, format: string, wasm:WasmAddFont) => {
     const arr = new Uint8Array(await file.arrayBuffer());
     const result =wasm(arr, scale_height, pixels_from_up, pixels_from_left, text, format);
     const blob = new Blob([result]);

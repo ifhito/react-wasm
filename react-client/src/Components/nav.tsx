@@ -5,20 +5,21 @@ import {
     Switch,
     Route
   } from "react-router-dom";
+import styles from "../styles/nav.module.css";
 import PDF from './pdf';
 import Webasm from './Wasm';
 import Text from './text';
-function Nav() {
+const Nav = () => {
   return (
         <Router>
-          <div>
-            <nav>
-            <ul>
-              <li>
-                  <div><Link to="/">Home</Link></div>
+          <div className={styles.router}>
+            <nav className={styles.router__nav}>
+            <ul className={styles.router__nav__ul}>
+              <li >
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <div><Link to="/pdf">PDF</Link></div>
+                <Link to="/pdf">PDF</Link>
               </li>
               <li>
                 <Link to="/text">Text</Link>
